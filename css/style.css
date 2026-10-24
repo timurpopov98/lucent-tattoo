@@ -12,7 +12,7 @@
 
   --f-display: "Prata", "Times New Roman", serif;
   --f-body: "Manrope", system-ui, sans-serif;
-  --f-hand: "Bad Script", cursive;
+  --f-hand: "Permanent Marker", "Caveat", cursive;  /* Caveat covers Cyrillic */
 
   --gutter: clamp(16px, 4vw, 64px);
   --measure: 34rem;
@@ -45,8 +45,11 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
 }
 .display--xl { font-size: clamp(3.4rem, 13vw, 12rem); max-width: none; }
 .lede { font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.65; max-width: var(--measure); color: #262523; }
-.note { font: 400 clamp(1.25rem, 2vw, 1.7rem)/1.1 var(--f-hand); color: var(--ink); }
+.note { font: 400 clamp(1.05rem, 1.6vw, 1.4rem)/1.15 var(--f-hand); color: var(--ink); }
 
+/* handwriting is split into letters for the write-in animation */
+.w { display: inline-block; white-space: nowrap; }
+.ch { display: inline-block; }
 .split-line { display: inline-block; vertical-align: top; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .split-line > span { display: inline-block; will-change: transform; }
 
@@ -176,7 +179,7 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
 .collage__c { left: 8%; bottom: 0; --r: -2deg; z-index: 3; }
 .collage .torn { height: 100%; }
 .paper-slip .torn { height: auto; padding: .9rem 1.3rem 1.1rem; background: var(--paper-light); }
-.slip { font: 400 1.5rem/1 var(--f-hand); color: var(--ink); white-space: nowrap; }
+.slip { font: 400 1.2rem/1 var(--f-hand); color: var(--ink); white-space: nowrap; }
 .collage__scribble { position: absolute; z-index: 4; width: 46%; right: 4%; top: -2%; fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; filter: url(#rough); pointer-events: none; }
 
 /* ---------- marquee (tape strip) ---------- */
@@ -185,9 +188,9 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
   padding: .9rem 0; filter: var(--shadow);
 }
 .marquee__track { display: flex; width: max-content; gap: 3.5rem; padding-left: 3.5rem; }
-.marquee__track span { font: 400 clamp(1.6rem, 3.2vw, 2.6rem)/1 var(--f-display); white-space: nowrap; }
-.marquee__track span:nth-child(odd) { font-family: var(--f-hand); }
-.marquee__track span:nth-child(3n) { background: var(--lime); padding: 0 .3em; }
+.marquee__track > span { font: 400 clamp(1.6rem, 3.2vw, 2.6rem)/1 var(--f-display); white-space: nowrap; }
+.marquee__track > span:nth-child(odd) { font-family: var(--f-hand); font-size: clamp(1.3rem, 2.6vw, 2.1rem); align-self: center; }
+.marquee__track > span:nth-child(3n) { background: var(--lime); padding: 0 .3em; }
 
 /* ---------- section heads ---------- */
 .section-head {
@@ -288,7 +291,7 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
   position: absolute; right: calc(var(--gutter) + 4vw); top: clamp(3rem, 8vw, 7rem);
   width: clamp(130px, 14vw, 180px); aspect-ratio: 1; border-radius: 50%;
   display: grid; place-items: center; text-align: center; padding: 1.4rem;
-  font: 400 1.6rem/1.05 var(--f-hand); color: var(--ink); text-decoration: none;
+  font: 400 1.25rem/1.1 var(--f-hand); color: var(--ink); text-decoration: none;
   background: var(--lime); border: 2px solid var(--ink); transform: rotate(-12deg);
   transition: transform .5s cubic-bezier(.2,.8,.2,1), background-color .3s, color .3s;
 }

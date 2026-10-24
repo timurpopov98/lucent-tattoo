@@ -63,9 +63,11 @@
     document.querySelectorAll("[data-split]").forEach(split);
     document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
     syncPauseLabel();
+    if (writer) writer.refresh();
     try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
     if (hasGsap && window.ScrollTrigger) ScrollTrigger.refresh();
   }
+  let writer = null;   // handwriting animation, set up once GSAP is ready
   let currentLang = readLang();
   document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
     if (b.dataset.lang === currentLang) return;
@@ -130,6 +132,41 @@
   }
 
   const rotOf = el => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0;
+
+  // Handwritten notes write themselves letter by letter when they come into view.
+  writer = (() => {
+    const esc = c => c.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const isHand = el => getComputedStyle(el).fontFamily.includes("Permanent Marker");
+    function split(el) {
+      const text = el.textContent;
+      el.setAttribute("aria-label", text.trim());
+      el.innerHTML = text.split(/(\s+)/).map(part => /^\s*$/.test(part) ? part :
+        `<span class="w" aria-hidden="true">${[...part].map(c => `<span class="ch">${esc(c)}</span>`).join("")}</span>`).join("");
+      gsap.set(el.querySelectorAll(".ch"), { opacity: 0, clipPath: "inset(-30% 100% -30% 0)" });
+    }
+    function write(el) {
+      gsap.to(el.querySelectorAll(".ch"), {
+        opacity: 1, clipPath: "inset(-30% 0% -30% 0)", duration: .22, ease: "power1.inOut",
+        stagger: .045, delay: el.closest(".hero") ? 1.3 : .1
+      });
+    }
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      write(e.target);
+    }), { threshold: .6 });
+    return {
+      refresh() {
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          if (!isHand(el)) return;
+          io.unobserve(el);
+          split(el);
+          io.observe(el);
+        });
+      }
+    };
+  })();
+  writer.refresh();
 
   // 1. Page-load: the film is laid onto the paper, then the name is set in ink.
   const intro = gsap.timeline({ defaults: { ease: "expo.out" } });
