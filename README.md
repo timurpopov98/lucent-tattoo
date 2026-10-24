@@ -22,9 +22,9 @@ preview.html          copy of index.html without the document wrapper, used for 
 
 ## Still needed
 
-- Artist photos: put them in `assets/img/artists/` as `hanna.jpg`, `boris.jpg`,
-  `nikolay.jpg`, `daria.jpg`, `sasha.jpg`, `viga.jpg`. Until a file exists the
-  card shows "photo coming".
+- Photo of Viga: `assets/img/artists/viga.jpg` (4:5, about 720×900). Until the
+  file exists the card shows "photo coming". The other artists' photos are in
+  the same folder, cropped to 720×900.
 - Opening hours (`visit.tbd` in `js/i18n.js`).
 - Events: dates and real events (currently "date soon" placeholders).
 - Journal posts: titles are drafts, the links do not lead anywhere yet.
