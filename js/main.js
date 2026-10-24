@@ -147,7 +147,7 @@
     function write(el) {
       gsap.to(el.querySelectorAll(".ch"), {
         opacity: 1, clipPath: "inset(-30% 0% -30% 0)", duration: .22, ease: "power1.inOut",
-        stagger: .045, delay: el.closest(".hero") ? 1.3 : .1
+        stagger: .045, delay: el.closest(".hero") ? 1.3 : el.closest(".dossier") ? .9 : .1
       });
     }
     const io = new IntersectionObserver(entries => entries.forEach(e => {
@@ -157,7 +157,7 @@
     }), { threshold: .6 });
     return {
       refresh() {
-        document.querySelectorAll("[data-i18n]").forEach(el => {
+        document.querySelectorAll("[data-i18n], [data-write]").forEach(el => {
           if (!isHand(el)) return;
           io.unobserve(el);
           split(el);
@@ -168,7 +168,11 @@
   })();
   writer.refresh();
 
+  window.Lucent = { lenis, rotOf };
+  gsap.from(".nav", { opacity: 0, y: -12, duration: .9, delay: .3, ease: "expo.out", clearProps: "transform,opacity" });
+
   // 1. Page-load: the film is laid onto the paper, then the name is set in ink.
+  if (document.querySelector(".hero")) {
   const intro = gsap.timeline({ defaults: { ease: "expo.out" } });
   intro
     .from(".hero__frame", { opacity: 0, scale: 1.08, rotation: 4, y: -30, duration: 1.4 })
@@ -176,8 +180,7 @@
     .from(".hero__letters span", { yPercent: 110, duration: 1.2, stagger: .06 }, "-=1.0")
     .from(".hero__sub, .hero__pause", { opacity: 0, y: 14, duration: .8 }, "-=0.7")
     .from(".hero__note", { opacity: 0, x: -10, rotation: -10, duration: .8 }, "-=0.6")
-    .from(".hero__badge", { opacity: 0, scale: 1.5, rotation: -60, duration: .9, ease: "back.out(1.8)" }, "-=0.5")
-    .from(".nav", { opacity: 0, y: -12, duration: .9, clearProps: "transform,opacity" }, "-=1.1");
+    .from(".hero__badge", { opacity: 0, scale: 1.5, rotation: -60, duration: .9, ease: "back.out(1.8)" }, "-=0.5");
 
   // Hero leaves: film sinks back, letters drift apart.
   gsap.to(".hero__frame", { yPercent: 8, scale: .96, rotation: -2.5, ease: "none",
@@ -186,6 +189,7 @@
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".hero__letters span", { yPercent: i => -20 - i * 12, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "20% top", end: "bottom top", scrub: true } });
+  }
 
   // 2. Headings rise word by word.
   document.querySelectorAll("[data-split]").forEach(el => {
@@ -239,6 +243,7 @@
   const mm = gsap.matchMedia();
   mm.add("(min-width: 961px)", () => {
     const board = document.querySelector("[data-board]");
+    if (!board) return;
     const cards = gsap.utils.toArray("[data-card]");
     const distance = () => Math.max(0, board.scrollWidth - window.innerWidth);
     const slide = gsap.to(board, { x: () => -distance(), ease: "none",
@@ -257,7 +262,7 @@
   });
 
   // 8. The stamp presses down.
-  gsap.from(".stamp", { scale: 1.6, opacity: 0, rotation: -40, duration: .7, ease: "back.out(2.2)",
+  if (document.querySelector(".stamp")) gsap.from(".stamp", { scale: 1.6, opacity: 0, rotation: -40, duration: .7, ease: "back.out(2.2)",
     scrollTrigger: { trigger: ".visit", start: "top 60%" }, onComplete: () => gsap.set(".stamp", { clearProps: "transform" }) });
 
   window.addEventListener("load", () => { tearAll(); ScrollTrigger.refresh(); });

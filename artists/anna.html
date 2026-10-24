@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anna · Lucent Tattoo Studio</title>
+  <meta name="description" content="Anna, tattoo artist at Lucent Tattoo Studio, Sofia: fine line, graphic and detailed tattoos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600&family=Permanent+Marker&family=Caveat:wght@700&family=Courier+Prime&family=PT+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../assets/img/brand/favicon.png">
+</head>
+<body class="artist-page" data-artist="anna">
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+  </svg>
+
+  <header class="nav" data-nav>
+    <a class="nav__logo" href="../index.html"><img src="../assets/img/brand/logo-160.png" alt="Lucent Tattoo" width="160" height="160"></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="../index.html#artists" data-i18n="nav.artists">Artists</a>
+      <a href="../index.html#piercing" data-i18n="nav.piercing">Piercing</a>
+      <a href="../index.html#events" data-i18n="nav.events">Events</a>
+      <a href="../index.html#journal" data-i18n="nav.journal">Journal</a>
+      <a href="../index.html#visit" data-i18n="nav.visit">Visit</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="bg" aria-pressed="false">BG</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- DOSSIER -->
+    <section class="dossier" aria-labelledby="artist-name">
+      <a class="dossier__back link-ink" href="../index.html#artists" data-i18n="d.back">All artists</a>
+
+      <div class="folder" data-folder>
+        <div class="sheet" data-sheet>
+          <svg class="clip" viewBox="0 0 40 120" aria-hidden="true"><path d="M28 30 V96 a10 10 0 0 1 -20 0 V20 a7 7 0 0 1 14 0 V88 a3.5 3.5 0 0 1 -7 0 V34"/></svg>
+          <p class="sheet__secret" data-i18n="d.secret">Top secret</p>
+
+          <div class="sheet__head">
+            <img class="sheet__logo" src="../assets/img/brand/logo.png" alt="" width="640" height="641">
+            <a class="sheet__qr" href="https://www.instagram.com/annetemma/" target="_blank" rel="noopener" aria-label="Instagram @annetemma">
+              <img src="../assets/img/dossier/qr-anna.svg" alt="" width="120" height="120">
+            </a>
+          </div>
+
+          <dl class="form">
+            <div class="form__row form__row--fill"><dt data-i18n="d.name">Name</dt><dd><h1 id="artist-name" class="form__hand" data-i18n="anna.name">Anna</h1></dd></div>
+            <div class="form__row form__row--fill"><dt data-i18n="d.subject">Subject</dt><dd class="form__hand" data-i18n="d.tattoo">Tattoo master</dd></div>
+            <div class="form__row"><dt data-i18n="d.birth">Birth date</dt><dd><span class="redact" data-redact></span></dd></div>
+          </dl>
+
+          <dl class="form">
+            <div class="form__row form__row--fill form__row--title"><dt data-i18n="d.styles">Works in these styles</dt></div>
+            <div class="form__row form__row--fill form__row--chips"><dd>
+              <span class="chip" data-i18n="s.graphic">Graphic</span>
+              <span class="chip" data-i18n="s.fineline">Fine line</span>
+              <span class="chip" data-i18n="s.detailed">Detailed tattoo</span>
+            </dd></div>
+            <div class="form__row"><dt data-i18n="d.city">City</dt><dd><span class="redact" data-redact></span></dd></div>
+            <div class="form__row"><dt data-i18n="d.weight">Weight</dt><dd><span class="redact" data-redact></span></dd></div>
+            <div class="form__row"><dt data-i18n="d.height">Height</dt><dd><span class="redact" data-redact></span></dd></div>
+          </dl>
+
+          <dl class="form">
+            <div class="form__row form__row--fill"><dt>Instagram</dt><dd><a class="form__hand" data-write href="https://www.instagram.com/annetemma/" target="_blank" rel="noopener">@annetemma</a></dd></div>
+            <div class="form__row form__row--fill form__row--bio"><dt data-i18n="d.bio">Biography</dt><dd data-i18n="anna.bio">She specializes in fine line and graphic tattoos, creating elegant pieces with close attention to detail.</dd></div>
+          </dl>
+        </div>
+
+        <figure class="polaroid polaroid--portrait" data-polaroid>
+          <img src="../assets/img/artists/anna.jpg" alt="Anna" width="720" height="900">
+          <span class="tape tape--t"></span>
+        </figure>
+
+        <div class="prints" data-prints>
+          <svg class="prints__clip" viewBox="0 0 60 90" aria-hidden="true"><rect x="8" y="34" width="44" height="40" rx="3"/><path d="M14 36 V12 a6 6 0 0 1 12 0 M46 36 V12 a6 6 0 0 0 -12 0"/></svg>
+          <figure><img src="../assets/img/dossier/print-left.svg" alt="" width="120" height="156"><figcaption data-i18n="d.left">Left</figcaption></figure>
+          <figure><img src="../assets/img/dossier/print-right.svg" alt="" width="120" height="156"><figcaption data-i18n="d.right">Right</figcaption></figure>
+        </div>
+
+        <svg class="pen" viewBox="0 0 520 60" aria-hidden="true">
+          <rect x="70" y="16" width="330" height="28" rx="6" fill="#151515"/>
+          <rect x="400" y="13" width="110" height="34" rx="8" fill="var(--artist)"/>
+          <rect x="406" y="13" width="10" height="34" fill="rgba(0,0,0,.18)"/>
+          <path d="M70 18 L30 26 L6 30 L30 34 L70 42 Z" fill="#2a2a2a"/>
+          <text x="120" y="35" fill="#e9e9e9" font-family="Courier Prime, monospace" font-size="13" letter-spacing="1">PERMANENT FINE LINER</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="works" aria-labelledby="works-title">
+      <header class="section-head">
+        <h2 id="works-title" class="display" data-split data-i18n="anna.works">Anna’s work</h2>
+        <p class="section-head__aside" data-reveal><span class="works__count" data-count></span> <span data-i18n="d.works.aside">Tap a photo to see it larger.</span></p>
+      </header>
+      <div class="gallery" data-gallery></div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="artist-end">
+      <h2 class="display display--xl" data-split data-i18n="anna.end">Have an idea for Anna?</h2>
+      <p class="lede" data-reveal data-i18n="d.end.body">Send a message on Instagram with your idea, the placement and a rough size.</p>
+    </section>
+  </main>
+
+  <a class="book-sticky" href="https://ig.me/m/annetemma" target="_blank" rel="noopener">
+    <span class="book-sticky__dot" aria-hidden="true"></span>
+    <span data-i18n="anna.book">Book with Anna</span>
+  </a>
+
+  <dialog class="lightbox" data-lightbox>
+    <img alt="">
+    <button class="lightbox__btn lightbox__close" type="button" data-lb-close data-lb-label="lb.close">×</button>
+    <button class="lightbox__btn lightbox__prev" type="button" data-lb-prev data-lb-label="lb.prev">‹</button>
+    <button class="lightbox__btn lightbox__next" type="button" data-lb-next data-lb-label="lb.next">›</button>
+    <p class="lightbox__count" data-lb-count></p>
+  </dialog>
+
+  <footer class="foot">
+    <img class="foot__logo" src="../assets/img/brand/logo.png" alt="Lucent Tattoo" width="640" height="641">
+    <span data-i18n="foot.line">Tattoo &amp; piercing studio</span>
+    <span>© <span data-year></span></span>
+  </footer>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="../vendor/lenis.min.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/artists.js"></script>
+  <script src="../js/artist.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/dossier.js"></script>
+</body>
+</html>
