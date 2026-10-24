@@ -15,6 +15,7 @@ js/i18n.js            all copy in English and Bulgarian (keys match data-i18n at
 js/main.js            torn-paper edges, language switch, GSAP/ScrollTrigger/Lenis motion
 assets/video/hero.mp4 hero banner video (replace with the final film, keep the name)
 assets/img/paper.jpg  generated crumpled-paper texture
+assets/img/brand/     logo (black and white versions) and favicon
 vendor/               GSAP, ScrollTrigger, Lenis
 preview.html          copy of index.html without the document wrapper, used for the Claude artifact preview
 ```
@@ -24,7 +25,6 @@ preview.html          copy of index.html without the document wrapper, used for 
 - Artist photos: put them in `assets/img/artists/` as `hanna.jpg`, `boris.jpg`,
   `nikolay.jpg`, `daria.jpg`, `sasha.jpg`, `viga.jpg`. Until a file exists the
   card shows "photo coming".
-- Logo file (SVG preferred) for the header.
 - Opening hours (`visit.tbd` in `js/i18n.js`).
 - Events: dates and real events (currently "date soon" placeholders).
 - Journal posts: titles are drafts, the links do not lead anywhere yet.

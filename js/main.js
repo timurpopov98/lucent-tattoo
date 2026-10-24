@@ -139,10 +139,13 @@
     .from(".hero__letters span", { yPercent: 110, duration: 1.2, stagger: .06 }, "-=1.0")
     .from(".hero__sub, .hero__pause", { opacity: 0, y: 14, duration: .8 }, "-=0.7")
     .from(".hero__note", { opacity: 0, x: -10, rotation: -10, duration: .8 }, "-=0.6")
+    .from(".hero__badge", { opacity: 0, scale: 1.5, rotation: -60, duration: .9, ease: "back.out(1.8)" }, "-=0.5")
     .from(".nav", { opacity: 0, y: -12, duration: .9, clearProps: "transform,opacity" }, "-=1.1");
 
   // Hero leaves: film sinks back, letters drift apart.
   gsap.to(".hero__frame", { yPercent: 8, scale: .96, rotation: -2.5, ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".hero__badge", { rotation: 40, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".hero__letters span", { yPercent: i => -20 - i * 12, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "20% top", end: "bottom top", scrub: true } });
